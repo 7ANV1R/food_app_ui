@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/core/const_color.dart';
 import 'package:food_app/screens/home_page.dart';
 
 void main() {
@@ -14,6 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Food App UI',
       theme: ThemeData(
+        scaffoldBackgroundColor: kWhiteColor,
+        //will change primary color later
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
