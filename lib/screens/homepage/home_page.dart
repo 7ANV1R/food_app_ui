@@ -6,6 +6,7 @@ import 'package:food_app/core/theme/const_color.dart';
 import 'package:food_app/screens/homepage/temp_data/category_data.dart';
 import 'package:food_app/screens/homepage/widget/color_converter.dart';
 import 'package:food_app/screens/homepage/widget/custom_app_bar.dart';
+import 'package:food_app/screens/homepage/widget/food_card.dart';
 import 'package:food_app/screens/homepage/widget/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:websafe_svg/websafe_svg.dart';
@@ -27,12 +28,12 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               //appbar
-              HomeAppBar(userName: userName),
+              const HomeAppBar(userName: userName),
               //serchbar
-              SearchBar(),
+              const SearchBar(),
               // chip
               kVerticalSpaceL,
-              CatergoryChip(),
+              const CatergoryChip(),
               kVerticalSpaceL,
               // card part
               Padding(
@@ -68,6 +69,10 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+
+              // main card
+
+              const FoodCard(),
             ],
           ),
         ),
