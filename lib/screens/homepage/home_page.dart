@@ -4,6 +4,7 @@ import 'package:food_app/core/theme/ui_helper.dart';
 import 'package:food_app/core/value/const_asset.dart';
 import 'package:food_app/core/theme/const_color.dart';
 import 'package:food_app/screens/homepage/temp_data/category_data.dart';
+import 'package:food_app/screens/homepage/widget/color_converter.dart';
 import 'package:food_app/screens/homepage/widget/custom_app_bar.dart';
 import 'package:food_app/screens/homepage/widget/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,16 +25,49 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
-            children: const [
+            children: [
               //appbar
               HomeAppBar(userName: userName),
               //serchbar
               SearchBar(),
-
               // chip
               kVerticalSpaceL,
-
               CatergoryChip(),
+              kVerticalSpaceL,
+              // card part
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 26,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "Let’s Order",
+                        style: GoogleFonts.outfit(
+                          color: kBlackColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.local_fire_department,
+                      size: 18,
+                      color: Colors.red,
+                    ),
+                    Text(
+                      "50+",
+                      style: GoogleFonts.outfit(
+                        color: kBlackColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -75,7 +109,7 @@ class CatergoryChip extends StatelessWidget {
             ),
           );
         },
-        separatorBuilder: (context, index) => kHorizontalSpaceL,
+        separatorBuilder: (context, index) => kHorizontalSpaceM,
         itemCount: category.length,
       ),
     );
@@ -122,15 +156,5 @@ class HomeAppBar extends StatelessWidget {
       ),
       icon: WebsafeSvg.asset(kAssetIconMenu),
     );
-  }
-}
-
-class HexColor extends Color {
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
-  static int _getColorFromHex(String hexColor) {
-    if (hexColor.length == 6) {
-      hexColor = 'FF$hexColor';
-    }
-    return int.parse(hexColor, radix: 16);
   }
 }
