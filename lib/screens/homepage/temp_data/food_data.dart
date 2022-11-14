@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> categoryData = [
+List<Map<String, dynamic>> foodData = [
   <String, dynamic>{
     'foodName': 'Cheese Burger',
     'restaurantName': 'Cheesy Mozarella',

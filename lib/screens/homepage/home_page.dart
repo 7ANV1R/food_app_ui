@@ -4,6 +4,7 @@ import 'package:food_app/core/theme/ui_helper.dart';
 import 'package:food_app/core/value/const_asset.dart';
 import 'package:food_app/core/theme/const_color.dart';
 import 'package:food_app/screens/homepage/temp_data/category_data.dart';
+import 'package:food_app/screens/homepage/temp_data/food_data.dart';
 import 'package:food_app/screens/homepage/widget/color_converter.dart';
 import 'package:food_app/screens/homepage/widget/custom_app_bar.dart';
 import 'package:food_app/screens/homepage/widget/food_card.dart';
@@ -69,13 +70,42 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+              kVerticalSpaceM,
 
               // main card
 
-              const FoodCard(),
+              const ProductCardPart(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ProductCardPart extends StatelessWidget {
+  const ProductCardPart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final foodList = foodData;
+    return SizedBox(
+      height: 300,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 26,
+        ),
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final item = foodList[index];
+          return FoodCard(
+            item: item,
+          );
+        },
+        separatorBuilder: (context, index) => kHorizontalSpaceM,
+        itemCount: foodList.length,
       ),
     );
   }
