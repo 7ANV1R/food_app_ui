@@ -10,21 +10,17 @@ class FoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return SizedBox(
-      height: 300,
-      width: 182,
+      height: size.height * 0.37,
+      width: size.width * 0.49,
       child: Stack(
         children: [
-          Container(
-            height: 300,
-            width: 182,
-            color: Colors.transparent,
-          ),
           Positioned(
             bottom: 0,
             child: Container(
-              height: 230,
-              width: 182,
+              height: size.height * 0.3,
+              width: size.width * 0.49,
               decoration: BoxDecoration(
                 color: HexColor(item['cardColor']),
                 borderRadius: BorderRadius.circular(25),
@@ -32,18 +28,17 @@ class FoodCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 110,
+            bottom: size.height * 0.125,
             left: 0,
             right: 0,
             child: Image.asset(
               item['img'],
-              height: 230,
-              width: 230,
+              height: size.height * 0.31,
               fit: BoxFit.cover,
             ),
           ),
           Positioned(
-            top: 180,
+            top: size.height * 0.22,
             left: 0,
             right: 0,
             child: Column(

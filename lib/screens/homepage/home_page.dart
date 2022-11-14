@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     const String userName = 'Ray';
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
@@ -70,9 +71,9 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              kVerticalSpaceM,
-
-              // main card
+              SizedBox(
+                height: size.height * 0.05,
+              ),
 
               const ProductCardPart(),
             ],
@@ -90,9 +91,10 @@ class ProductCardPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     final foodList = foodData;
     return SizedBox(
-      height: 300,
+      height: size.height * 0.37,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(
           horizontal: 26,
