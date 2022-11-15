@@ -3,10 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:food_app/core/theme/ui_helper.dart';
 import 'package:food_app/core/value/const_asset.dart';
 import 'package:food_app/core/theme/const_color.dart';
+import 'package:food_app/screens/details_page/details_page.dart';
 import 'package:food_app/screens/homepage/temp_data/category_data.dart';
 import 'package:food_app/screens/homepage/temp_data/food_data.dart';
 import 'package:food_app/screens/homepage/widget/color_converter.dart';
-import 'package:food_app/screens/homepage/widget/custom_app_bar.dart';
+import 'package:food_app/global_widget/custom_app_bar.dart';
 import 'package:food_app/screens/homepage/widget/food_card.dart';
 import 'package:food_app/screens/homepage/widget/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -199,8 +200,20 @@ class ProductCardPart extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           final item = foodList[index];
-          return FoodCard(
-            item: item,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsPage(
+                    item: item,
+                  ),
+                ),
+              );
+            },
+            child: FoodCard(
+              item: item,
+            ),
           );
         },
         separatorBuilder: (context, index) => kHorizontalSpaceM,

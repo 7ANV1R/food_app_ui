@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/theme/app_theme.dart';
+import 'package:food_app/screens/details_page/details_page.dart';
 import 'package:food_app/screens/homepage/home_page.dart';
 
 void main() {
