@@ -12,7 +12,7 @@ class FoodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 0.37,
+      height: size.height * 0.4,
       width: size.width * 0.49,
       child: Stack(
         children: [
@@ -38,7 +38,7 @@ class FoodCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: size.height * 0.22,
+            top: size.height * 0.24,
             left: 0,
             right: 0,
             child: Column(

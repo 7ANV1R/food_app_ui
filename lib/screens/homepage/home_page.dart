@@ -10,6 +10,7 @@ import 'package:food_app/screens/homepage/widget/custom_app_bar.dart';
 import 'package:food_app/screens/homepage/widget/food_card.dart';
 import 'package:food_app/screens/homepage/widget/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,61 +26,157 @@ class HomePage extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              //appbar
-              const HomeAppBar(userName: userName),
-              //serchbar
-              const SearchBar(),
-              // chip
-              kVerticalSpaceL,
-              const CatergoryChip(),
-              kVerticalSpaceL,
-              // card part
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 26,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "Let’s Order",
+        body: SlidingUpPanel(
+          body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                //appbar
+                const HomeAppBar(userName: userName),
+                //serchbar
+                const SearchBar(),
+                // chip
+                kVerticalSpaceL,
+                const CatergoryChip(),
+                kVerticalSpaceL,
+                // card part
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 26,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Let’s Order",
+                          style: GoogleFonts.outfit(
+                            color: kBlackColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.local_fire_department,
+                        size: 18,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "50+",
                         style: GoogleFonts.outfit(
                           color: kBlackColor,
-                          fontSize: 20,
+                          fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ),
-                    const Icon(
-                      Icons.local_fire_department,
-                      size: 18,
-                      color: Colors.red,
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.03,
+                ),
+
+                const ProductCardPart(),
+              ],
+            ),
+          ),
+          color: kBlackColor,
+          parallaxEnabled: true,
+          parallaxOffset: 0.1,
+          minHeight: size.height * 0.13,
+          maxHeight: size.height * 0.5,
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(38),
+          ),
+          panelBuilder: (sc) => CartPanel(
+            controller: sc,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CartPanel extends StatelessWidget {
+  const CartPanel({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final ScrollController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      controller: controller,
+      padding: EdgeInsets.zero,
+      children: [
+        kVerticalSpaceM,
+        Center(
+          child: Container(
+            height: 3,
+            width: 40,
+            decoration: BoxDecoration(
+              color: kPurpleColor,
+              borderRadius: BorderRadius.circular(5),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            children: [
+              kHorizontalSpaceM,
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  color: kYellowColor,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  '1',
+                  style: GoogleFonts.outfit(
+                    color: kBlackColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              kHorizontalSpaceM,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'My Cart',
+                      style: GoogleFonts.outfit(
+                        color: kWhiteColor,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Text(
-                      "50+",
+                      '1 Item',
                       style: GoogleFonts.outfit(
-                        color: kBlackColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+                        color: kWhiteColor,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: size.height * 0.05,
+              Image.asset(
+                'assets/images/french_fries.png',
+                height: 85,
+                fit: BoxFit.cover,
               ),
-
-              const ProductCardPart(),
+              kHorizontalSpaceM,
             ],
           ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }
@@ -94,7 +191,7 @@ class ProductCardPart extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     final foodList = foodData;
     return SizedBox(
-      height: size.height * 0.37,
+      height: size.height * 0.4,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(
           horizontal: 26,
