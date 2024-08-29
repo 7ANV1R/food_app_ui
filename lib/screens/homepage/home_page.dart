@@ -104,9 +104,9 @@ class HomePage extends StatelessWidget {
 
 class CartPanel extends StatelessWidget {
   const CartPanel({
-    Key? key,
+    super.key,
     required this.controller,
-  }) : super(key: key);
+  });
 
   final ScrollController controller;
 
@@ -187,8 +187,8 @@ class CartPanel extends StatelessWidget {
 
 class ProductCardPart extends StatelessWidget {
   const ProductCardPart({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -228,8 +228,8 @@ class ProductCardPart extends StatelessWidget {
 
 class CatergoryChip extends StatelessWidget {
   const CatergoryChip({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -268,9 +268,9 @@ class CatergoryChip extends StatelessWidget {
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
-    Key? key,
+    super.key,
     required this.userName,
-  }) : super(key: key);
+  });
 
   final String userName;
 
