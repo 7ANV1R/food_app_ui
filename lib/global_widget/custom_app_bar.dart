@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/theme/const_color.dart';
+import '../core/theme/const_color.dart';
 
 class CusAppBar extends StatelessWidget {
   const CusAppBar({super.key, required this.titleWidget, required this.icon, this.onTaponIcon});

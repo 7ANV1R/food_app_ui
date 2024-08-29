@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_app/core/theme/ui_helper.dart';
-import 'package:food_app/core/value/const_asset.dart';
-import 'package:food_app/core/theme/const_color.dart';
-import 'package:food_app/screens/details_page/details_page.dart';
-import 'package:food_app/screens/homepage/temp_data/category_data.dart';
-import 'package:food_app/screens/homepage/temp_data/food_data.dart';
-import 'package:food_app/screens/homepage/widget/color_converter.dart';
-import 'package:food_app/global_widget/custom_app_bar.dart';
-import 'package:food_app/screens/homepage/widget/food_card.dart';
-import 'package:food_app/screens/homepage/widget/search_bar.dart';
+import '../../core/theme/ui_helper.dart';
+import '../../core/value/const_asset.dart';
+import '../../core/theme/const_color.dart';
+import '../details_page/details_page.dart';
+import 'temp_data/category_data.dart';
+import 'temp_data/food_data.dart';
+import 'widget/color_converter.dart';
+import '../../global_widget/custom_app_bar.dart';
+import 'widget/food_card.dart';
+import 'widget/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:websafe_svg/websafe_svg.dart';
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 //appbar
                 const HomeAppBar(userName: userName),
                 //serchbar
-                const SearchBar(),
+                const SearchBarWidget(),
                 // chip
                 kVerticalSpaceL,
                 const CatergoryChip(),
@@ -79,6 +79,9 @@ class HomePage extends StatelessWidget {
                 ),
 
                 const ProductCardPart(),
+                kVerticalSpaceXXXL,
+                kVerticalSpaceXXXL,
+                kVerticalSpaceXXXL,
               ],
             ),
           ),

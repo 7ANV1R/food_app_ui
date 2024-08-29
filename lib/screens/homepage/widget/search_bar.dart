@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/value/const_asset.dart';
+import '../../../core/value/const_asset.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+class SearchBarWidget extends StatelessWidget {
+  const SearchBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

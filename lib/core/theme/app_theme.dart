@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/theme/const_color.dart';
+import 'const_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppTheme {

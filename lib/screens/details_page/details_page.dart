@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:food_app/core/theme/const_color.dart';
-import 'package:food_app/core/value/const_asset.dart';
-import 'package:food_app/global_widget/custom_app_bar.dart';
+import '../../core/theme/const_color.dart';
+import '../../core/value/const_asset.dart';
+import '../../global_widget/custom_app_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:slide_to_act/slide_to_act.dart';
@@ -64,7 +64,7 @@ class DetailsPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(26.0),
                 child: SlideAction(
-                  onSubmit: () {},
+                  onSubmit: () async {},
                   sliderButtonIcon: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,

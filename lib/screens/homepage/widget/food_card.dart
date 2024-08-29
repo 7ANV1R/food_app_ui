@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/theme/const_color.dart';
-import 'package:food_app/core/theme/ui_helper.dart';
-import 'package:food_app/screens/homepage/widget/color_converter.dart';
+import '../../../core/theme/const_color.dart';
+import '../../../core/theme/ui_helper.dart';
+import 'color_converter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FoodCard extends StatelessWidget {
